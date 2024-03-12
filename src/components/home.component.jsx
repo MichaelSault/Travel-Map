@@ -7,13 +7,28 @@ import CityLabel from './cityLabel.component';
 
 function Home() {
 
+  const handleClick = (geo) => {
+    console.log(geo.properties.name)
+  }
+
   return (
     <>
         <ComposableMap>
           <Geographies geography="/features.json">
             {({ geographies }) =>
             geographies.map((geo) => (
-              <Geography key={geo.rsmKey} geography={geo} />
+              <Geography 
+                key={geo.rsmKey} 
+                geography={geo}
+                fill="#EAEAEC"
+                stroke="#D6D6DA"
+                style={{
+                  default: { outline: "none" },
+                  hover: { outline: "none", fill: "#24BB22"},
+                  pressed: { outline: "none", fill: "#54BB22" },
+                }}
+                onClick={() => handleClick(geo)}
+              />
             ))
             }
           </Geographies>
