@@ -1,5 +1,5 @@
 import '../App.css';
-import React from 'react';
+import React, {useState} from 'react';
 import { ComposableMap, Geographies, Geography } from 'react-simple-maps';
 
 import City from './city.component';
@@ -7,12 +7,17 @@ import CityLabel from './cityLabel.component';
 
 function Home() {
 
+  const [country, setCountry] = useState("");
   const handleClick = (geo) => {
-    console.log(geo.properties.name)
+    console.log(geo.properties.name);
+    setCountry(geo.properties.name);
   }
 
   return (
     <>
+        <h1>Map of the World</h1>
+        {country == "" ? <br/>:<h2>Selected Country: {country}</h2>}
+        
         <ComposableMap>
           <Geographies geography="/features.json">
             {({ geographies }) =>
@@ -57,7 +62,7 @@ function Home() {
           <City cityName="Osaka" coordNorth={34.6937} coordWest={-135.5023}/>
           <City cityName="Yokohama" coordNorth={35.4437} coordWest={-139.6380}/>
           <City cityName="Hiroshima" coordNorth={34.3853} coordWest={-132.4553}/>
-        </ComposableMap>       
+        </ComposableMap>
     </>
   )
 }
