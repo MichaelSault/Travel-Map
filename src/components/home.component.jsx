@@ -16,7 +16,7 @@ function Home() {
   return (
     <>
         <h1>Map of the World</h1>
-        {country == "" ? <br/>:<h2>Selected Country: {country}</h2>}
+        {country == "" ? <div className='blankH2'></div>:<h2>Selected Country: {country}</h2>}
         
         <ComposableMap>
           <Geographies geography="/features.json">
