@@ -25,7 +25,7 @@ function Home() {
               <Geography 
                 key={geo.rsmKey} 
                 geography={geo}
-                fill="#EAEAEC"
+                fill={geo.properties.name == country ? "#24BB22" : "#EAEAEC"}
                 stroke="#D6D6DA"
                 style={{
                   default: { outline: "none" },
