@@ -7,16 +7,28 @@ import CityLabel from './cityLabel.component';
 
 function Home() {
 
-  const [country, setCountry] = useState("");
+  let nextId = 0;
+
+  const [country, setCountries] = useState([]);
   const handleClick = (geo) => {
-    console.log(geo.properties.name);
-    setCountry(geo.properties.name);
+    if (!country.includes(geo.properties.name)) {
+      const nextCountry = [
+        ...country,
+        geo.properties.name
+      ];
+      setCountries(nextCountry);
+    } else {
+      console.log("country already selected");
+      setCountries(prev => prev.filter(country => country !== geo.properties.name));
+    }
+    
   }
+  
 
   return (
     <>
         <h1>Map of the World</h1>
-        {country == "" ? <div className='blankH2'></div>:<h2>Selected Country: {country}</h2>}
+        {country == "" ? <div className='blankH2'></div>:<h2>Selected Country: {country[country.length-1]}</h2>}
         
         <ComposableMap>
           <Geographies geography="/features.json">
@@ -25,7 +37,7 @@ function Home() {
               <Geography 
                 key={geo.rsmKey} 
                 geography={geo}
-                fill={geo.properties.name == country ? "#24BB22" : "#EAEAEC"}
+                fill={ country.includes(geo.properties.name) ? "#24BB22" : "#EAEAEC"}
                 stroke="#D6D6DA"
                 style={{
                   default: { outline: "none" },
