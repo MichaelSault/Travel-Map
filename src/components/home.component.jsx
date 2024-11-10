@@ -18,7 +18,6 @@ function Home() {
       ];
       setCountries(nextCountry);
     } else {
-      console.log("country already selected");
       setCountries(prev => prev.filter(country => country !== geo.properties.name));
     }
     
@@ -66,14 +65,27 @@ function Home() {
           <CityLabel cityName="Seattle" coordNorth={47.6061} coordWest={122.3328} lineLengthX={-30} lineLengthY={4} connect={"end"}/>
           <City cityName="Seattle" coordNorth={47.6061} coordWest={122.3328}/>
 
-          <CityLabel cityName="Los Vegas" coordNorth={36.1716} coordWest={115.1391} lineLengthX={-30} lineLengthY={4} connect={"end"}/>
-          <City cityName="Los Vegas" coordNorth={36.1716} coordWest={115.1391}/>
+          <CityLabel cityName="Las Vegas" coordNorth={36.1716} coordWest={115.1391} lineLengthX={-30} lineLengthY={4} connect={"end"}/>
+          <City cityName="Las Vegas" coordNorth={36.1716} coordWest={115.1391}/>
           
           <CityLabel cityName="Tokyo" coordNorth={35.6764} coordWest={-139.6500} lineLengthX={15} lineLengthY={4} connect={"start"}/>
           <City cityName="Tokyo" coordNorth={35.6764} coordWest={-139.6500}/>
           <City cityName="Osaka" coordNorth={34.6937} coordWest={-135.5023}/>
           <City cityName="Yokohama" coordNorth={35.4437} coordWest={-139.6380}/>
           <City cityName="Hiroshima" coordNorth={34.3853} coordWest={-132.4553}/>
+
+          <CityLabel cityName="London" coordNorth={51.5072} coordWest={0.1276} lineLengthX={-12} lineLengthY={6} connect={"end"}/>
+          <City cityName="London" coordNorth={51.5072} coordWest={0.1276}/>
+          <City cityName="Birmingham" coordNorth={52.4823} coordWest={1.8900}/>
+          <CityLabel cityName="Hamburg" coordNorth={53.5488} coordWest={-9.9872} lineLengthX={12} lineLengthY={-10} connect={"start"}/>
+          <City cityName="Hamburg" coordNorth={53.5488} coordWest={-9.9872}/>
+          <City cityName="Berlin" coordNorth={52.5200} coordWest={-13.4050}/>
+          <CityLabel cityName="Amsterdam" coordNorth={52.3676} coordWest={-4.9041} lineLengthX={22} lineLengthY={-25} connect={"start"}/>
+          <City cityName="Amsterdam" coordNorth={52.3676} coordWest={-4.9041}/>
+          <City cityName="Lille" coordNorth={50.6244} coordWest={-3.0679}/>
+          <CityLabel cityName="Paris" coordNorth={48.8575} coordWest={-2.3514} lineLengthX={-12} lineLengthY={10} connect={"end"}/>
+          <City cityName="Paris" coordNorth={48.8575} coordWest={-2.3514}/>
+          <City cityName="Brussels" coordNorth={50.8477} coordWest={-4.3572}/>
         </ComposableMap>
     </>
   )
